@@ -1,0 +1,17 @@
+/* Sesuaikan ukuran card di halaman SearchResults */
+.search-results-container .similar-grid .similar-card {
+    width: 150px; /* Ukuran lebih kecil dari card standar */
+    height: auto;
+    margin: 10px;
+}
+
+.search-results-container .similar-grid .similar-card img {
+    width: 100%; /* Pastikan gambar mengikuti ukuran card */
+    height: auto; /* Menjaga proporsi gambar */
+}
+
+.search-results-container .similar-grid .similar-card h3 {
+    font-size: 14px; /* Sesuaikan ukuran teks */
+    text-align: center;
+    margin-top: 5px;
+}

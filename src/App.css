@@ -1,0 +1,352 @@
+/* App.css */
+.app {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #222;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.search input {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #4b5320;
+  color: white;
+  width: 250px;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Ukuran card lebih kecil */
+  gap: 1.5rem; /* Menambah jarak antar card */
+}
+
+.anime-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Mengatur layout secara vertikal */
+  justify-content: flex-end; /* Pastikan elemen di dalam card disusun secara vertikal */
+  height: 150px; /* Mengatur tinggi card menjadi 170px */
+  background-size: cover; /* Menyesuaikan gambar untuk mengisi card tanpa distorsi */
+  background-position: center center; /* Memastikan gambar tetap terpusat */
+}
+
+.anime-image {
+  width: 100%; /* Lebar gambar mengikuti lebar card */
+  height: 100%; /* Tinggi gambar mengikuti tinggi card */
+  object-fit: cover; /* Memastikan gambar memenuhi container tanpa distorsi */
+  object-position: center; /* Pastikan gambar terpusat */
+  border-bottom: 2px solid #444;
+}
+
+.title {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  opacity: 0; /* Title tidak terlihat secara default */
+  transition: opacity 0.4s ease-in-out; /* Tambahkan transisi untuk efek perubahan opasitas */
+}
+
+.episode {
+  position:absolute;
+  top: 0 ; 
+  padding: 0.5rem 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 0.7rem;
+  border-bottom-right-radius: 5px;
+}
+
+.anime-card:hover {
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.anime-card:hover .title {
+  opacity: 1; /* Title muncul saat hover */
+}
+
+.anime-card .anime-image + .title {
+  padding-top: 0.5rem;
+}
+
+.anime-card .anime-image + .title + .episode {
+  padding-top: 1rem; /* Menambahkan sedikit jarak untuk episode */
+}
+
+.anime-card .anime-image + .title + .episode + .description {
+  padding-top: 1rem; /* Menambahkan sedikit jarak untuk deskripsi (jika ada) */
+}
+
+.anime-card .anime-image + .title + .episode + .description {
+  flex-grow: 1; /* Menjaga sisa ruang untuk deskripsi atau informasi tambahan */
+}
+
+
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+}
+
+/* Tambahkan ke App.css */
+.popular-section {
+  background-color: #4b5320;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.popular-card {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 4px;
+}
+
+.popular-card:hover {
+  transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+.popular-image {
+  width: 80px;
+  height: 120px;
+  object-fit: cover; /* Memastikan gambar memenuhi container */
+  border-radius: 4px;
+}
+
+
+.popular-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.popular-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+
+/* Menambahkan styling untuk pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-btn {
+  padding: 0.5rem 1rem;
+  margin: 0 5px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.page-btn:hover {
+  background-color: #666;
+}
+
+.page-btn.active {
+  background-color: #1a1a1a;
+}
+/* Styling untuk Tombol "Lihat Semua" */
+.see-all-button {
+  background-color: #4b5320;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.see-all-button:hover {
+  background-color: #5a6431;
+}
+
+/* Styling untuk halaman "AllTopAnimes" */
+.all-top-animes-section {
+  padding: 2rem;
+}
+
+.all-anime-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.all-anime-cards .popular-card {
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* CSS khusus untuk Recommendation.jsx */
+.recommendation-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 180px; /* Menyesuaikan tinggi card */
+  background-size: cover;
+  background-position: center center;
+}
+
+.recommendation-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 2px solid #444;
+}
+
+.recommendation-title {
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.recommendation-card:hover {
+  transform: scale(1.05);
+}
+
+.recommendation-card:hover .recommendation-title {
+  opacity: 1;
+}
+
+.recommendation-card .recommendation-image + .recommendation-title {
+  padding-top: 0.5rem;
+}
+
+.recommendation-card .recommendation-image + .recommendation-title + .recommendation-description {
+  padding-top: 1rem;
+}
+
+.recommendation-description {
+  color: #ccc;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Menambahkan styling untuk container recommendation */
+.recommendation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Styling untuk pagination di bagian recommendation */
+.recommendation-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.recommendation-page-btn {
+  padding: 0.5rem 1rem;
+  margin: 0 5px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.recommendation-page-btn:hover {
+  background-color: #666;
+}
+
+.recommendation-page-btn.active {
+  background-color: #1a1a1a;
+}
+
+/* Styling untuk tombol "Lihat Semua" */
+.recommendation-see-all-button {
+  background-color: #4b5320;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: block;
+  text-align: center;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recommendation-see-all-button:hover {
+  background-color: #5a6431;
+}
